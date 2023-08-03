@@ -1,7 +1,8 @@
 # Project Overview
-Casestudy:
+ 
+              'Casestudy:
 
-##Eniac: the company
+#Eniac: the company
 
 Eniac is an online marketplace specializing in Apple-compatible accessories. It was founded ten years ago in Spain and has since grown and expanded to other neighboring countries.
 
@@ -11,12 +12,12 @@ Since the company went public, investors have been pushing for Eniac to scale up
 
 
 
-##Copany‘s strategy for new market:
+#Copany‘s strategy for new market:
 
 Eniac is exploring an expansion to the Brazilian market. Data shows that Brazil has an eCommerce revenue similar to that of Spain and Italy: an already huge market with an even bigger potential for growth. The problem for Eniac is the lack of knowledge of such a market. The company doesn’t have ties with local providers, package delivery services, or customer service agencies. Creating these ties and knowing the market would take a lot of time, while the board of directors has demanded the expansion to happen within the next year.
 Here comes Magist. Magist is a Brazilian Software as a Service company that offers a centralized order management system to connect small and medium-sized stores with the biggest Brazilian marketplaces. In addition, Magist provides after-sales services such as stock and warehouse management, product shipment, and customer service related to the shipment.
 
-##Magist
+#Magist
 
 Magist is already a big player and allows small companies to benefit from its economies of scale: it has signed advantageous contracts with the marketplaces and with the Post Office, thus reducing the cost of fees and, most importantly, the bureaucracy involved in getting things started.
 
