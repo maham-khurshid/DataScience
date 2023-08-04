@@ -23,4 +23,4 @@ Magist is already a big player and allows small companies to benefit from its ec
 
 The database include data from Magist-software from (2016 to 2018) only.  This data consist of different product categories offered by it. However Eniac only consist of tech Ecommerce product.
 
-**So, to analyse whether this is the perfect fit for Eniac to enter the Brazilian market, our focus only on Tech-Categories**
+**So, to analyse whether this is the perfect fit for Eniac to enter the Brazilian market, our focus will be on only Tech-Categories from the data given**
