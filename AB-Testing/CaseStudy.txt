@@ -1,0 +1,77 @@
+## Case study: MSU Library
+The Library of Montana State University has a website that students use to find books and articles. This is what the homepage looks like
+Below the library picture, there is a search bar and three big items: “Find”, “Request” and “Interact”. All three of them contain access to important information and services that the library prides itself in offering. However, the Website Analytics show that the “Interact” button has, ironically, almost no interactions:The way to measure how each one of the three categories performs is by click-through rate (CTR), a common term in Online Marketing which typically describes the number of clicks an ad receives divided by the number of times the ad is shown. Here, click-through rate is measured as the number of clicks on each item divided by the total number of visits on the website. The report from the team analysing the website shows the specific numbers and explains how they reacted to them:
+During the sample period from April 3, 2013 – April 10, 2013, which included 10,819 visits to the library homepage, there was a large disparity among the three main content categories. The click-through rate for Find was 35%, Request was 6%, and Interact was 2%. This observation prompted a question: “Why are Interact clicks so low?” At this time, the content beneath Interact included links to Reference Services, Instruction Services, Subject Liaisons, Writing Center, About, Staff Directory, Library FAQ, Give to the Library, and Floor Maps. The library’s web committee surmised that introducing this category with the abstract term “Interact” added difficulty and confusion for users trying to navigate into the library website homepage. Four different category titles were then proposed as variations to be tested: Connect, Learn, Help, and Services.
+In an A/B Test, one of the tasks that usually belongs to the UX team is to perform user research and develop a new version of the website element that needs to be tested. The team had conversations with a few students and asked the following questions:
+      Have you previously clicked on Interact?
+      What content do you expect to see after you select Interact?
+      Does Interact accurately describe the content that you find after selecting Interact?
+      Which word best describes this category? Interact? Connect? Learn? Help? Services?
+Here are some of the responses from three of the students.
+Sophomore student:
+  “I didn’t know that ‘About’ was under Interact.'”
+  “Learn doesn’t work.”
+  “Connect is too vague and too close to Interact.”
+  “Services is more accurate. Help is stronger.”
+  “Floor maps seem odd here.”
+  In order of preferences of the choices, this student responded: Help, Services, Interact, Connect, Learn
+  Junior student:
+  “I am not a native English speaker, so I look for strong words. I look for help, so Help is the best, then Services too.”
+  Senior student:
+  “I’ve never felt the need to click on Interact. What am I interacting with? I guess the library?”
+  “I never knew floor maps were there, but I have wondered before where certain rooms were.”
+  “Help makes sense. When I’m in the library, and I think I need help, it would at least get me to click here to find out what sort of help there is.”
+  “Services also work.”
+  “Learn doesn’t work. I just think, What am I learning? I think of reading a book or something.”
+  “Connect is better than Interact, but neither are very good.”
+  In order of preferences of the choices, this student responded: Help, Services, Connect, Interact, Learn
+  After these interviews, how would you proceed to design an experiment that would improve the website? Before moving on to the next lesson, try to answer these questions by reviewing the resources on Experimental Design you read at the beginning of this project:
+  Would you include all suggested variants in the experiment (Connect, Learn, Help, Services)?
+  What is the “business value” that performing this experiment would add to the broader strategy of the University?
+  Which main metric would you choose to measure the success of a variant and perform the experiment on?
+  Which additional metrics would you choose to track?
+  How would you define the null and the alternative hypotheses?
+  What threshold for statistical significance would you set?
+  What is the minimum detectable effect (the smallest improvement you would care about) that you expect to detect?
+  Do you think this experiment would require a software engineering team to develop a custom platform, or could it be developed with external tools such as Google Optimize?
+
+
+
+Data
+1.Homepage Version 1 - Interact  http://www.lib.montana.edu/index.php created 5-29-2013  20 days 4 hours 21 mins  10283 visits, 3714 clicks
+
+2.Homepage Version 2 - Connect • http://www.lib.montana.edu/index2.php created 5-29-2013 • 20 days 7 hours 34 mins • 2742 visits, 1587 clicks
+
+3.Homepage Version 3 - Learn • http://www.lib.montana.edu/index3.php created 5-29-2013 • 20 days 12 hours 21 mins • 2747 visits, 1652 clicks 
+
+4.Homepage Version 4 - Help • http://www.lib.montana.edu/index4.php created 5-29-2013 • 20 days 4 hours 59 mins • 3180 visits, 1717 clicks 
+
+5.Homepage Version 5 - Services • http://www.lib.montana.edu/index5.php created 5-29-2013 • 20 days 4 hours 59 mins • 2064 visits, 1348 clicks
+
+
+What was the click-through rate for each version?
+Click-Through Rate for Interact: 36.12%
+Click-Through Rate for Connect: 57.88%
+Click-Through Rate for Learn: 60.14%
+Click-Through Rate for Help: 53.99%
+Click-Through Rate for Services: 65.31%
+
+Which version was the winner?
+Version: Connect is statistically better than Interact
+t-score: 16.54, p-value: 0.0000
+Version: Learn is statistically better than Interact
+t-score: 18.35, p-value: 0.0000
+Version: Help is statistically better than Interact
+t-score: 14.56, p-value: 0.0000
+Version: Services is statistically better than Interact
+t-score: 19.61, p-value: 0.0000
+services
+
+Do the results seem conclusive?
+Yes, the results appear to be conclusive. 
+Each version (Connect, Learn, Help, and Services) has a statistically significant higher
+click-through rate compared to the baseline version (Interact).
+The t-scores are quite large, and the p-values are very close to zero (p < 0.0001) for all versions,
+indicating a strong level of confidence in the results.
+Therefore, it can be concluded that these versions are indeed performing better 
+in terms of click-through rates compared to the baseline version.
