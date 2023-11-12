@@ -1,0 +1,127 @@
+import json
+import pandas as pd
+import requests
+import datetime
+
+def lambda_handler(event, context):
+    
+    con_string = create_con_string()
+    
+    cities_df = get_cities(con_string)
+    
+    get_and_send_weather(cities_df,con_string)
+    
+    airports_df = get_airports(con_string)
+    
+    get_and_send_flights(airports_df,con_string)
+    
+    
+    return {}
+
+
+def create_con_string():
+    schema="gans"
+    host="database-gansproject.ejejdejejjejejejejejejejej.rds.amazonaws.com"
+    user="admin"
+    password="blablablabla"
+    port=3306
+    con = f'mysql+pymysql://{user}:{password}@{host}:{port}/{schema}'
+    return con
+    
+    
+def get_cities(con):
+    
+    cities_df = pd.read_sql_table('cities',con=con)
+    return cities_df
+    
+    
+def get_and_send_weather(cities_df, con):
+    
+    API_key = "ba4ee70bd67035c208f2cfe63a9aa60e"
+    
+    weather_dict = {'city_id':[],
+                'forecast_time': [],
+                'temperature': [],
+                'wind_speed': [],
+                'humidity': []}
+                
+    for index, row in cities_df.iterrows():
+      
+      
+        url = (f"http://api.openweathermap.org/data/2.5/forecast?q={row['City']}&appid={API_key}&units=metric")
+    
+        response = requests.get(url)
+        my_json = response.json()
+        for weather in my_json['list'][:8]:
+            weather_dict['city_id'].append(row['city_id'])
+            weather_dict['forecast_time'].append(weather['dt_txt'])
+            weather_dict['temperature'].append(weather['main']['temp'])
+            weather_dict['wind_speed'].append(weather['wind']['speed'])
+            weather_dict['humidity'].append(weather['main']['humidity'])
+            
+    weather_df=pd.DataFrame(weather_dict)
+    
+    weather_df.to_sql('weathers',if_exists='append',con=con,index=False)
+    
+    
+def get_airports(con):
+    
+    airports_df = pd.read_sql_table('airports',con=con)
+    return airports_df
+    
+    
+def get_and_send_flights(airports_df, con):
+
+    today = datetime.date.today()
+    tomorrow = today + datetime.timedelta(days=1)
+    tomorrow = tomorrow.strftime('%Y-%m-%d')
+
+    time_from = "00:00"
+    time_to = "11:59"
+
+    flights_dict = {
+        'Arrival_airport': [],
+        'Departure_airport_icao': [],
+        'Departure_airport_city': [],
+        'Departure_terminal': [],
+        'Arrival_time_local': []
+    }
+
+    for index, row in airports_df.iterrows():
+
+        url = f"https://aerodatabox.p.rapidapi.com/flights/airports/icao/{row['ICAO']}/{tomorrow}T{time_from}/{tomorrow}T{time_to}"
+
+        querystring = {
+            "withLeg": "true",
+            "direction": "Arrival",
+            "withCancelled": "false",
+            "withCodeshared": "true",
+            "withCargo": "false",
+            "withPrivate": "false",
+            "withLocation": "false"
+        }
+
+        headers = {
+            "X-RapidAPI-Key": "heheheheheheehehhahehehehhehehehe",
+            "X-RapidAPI-Host": "aerodatabox.p.rapidapi.com"
+        }
+
+        response = requests.get(url, headers=headers, params=querystring)
+        flight_json = response.json()
+        for flight in flight_json['arrivals']:
+            flights_dict['Arrival_airport'].append(row['ICAO'])
+            flights_dict['Departure_airport_icao'].append(
+                flight['departure']['airport']['icao'])
+            flights_dict['Departure_airport_city'].append(
+                flight['departure']['airport']['name'])
+            flights_dict['Arrival_time_local'].append(
+                flight['arrival']['scheduledTimeLocal'])
+            try:
+                flights_dict['Departure_terminal'].append(
+                    flight['departure']['terminal'])
+            except:
+                flights_dict['Departure_terminal'].append('unknown')
+
+    flights_df = pd.DataFrame(flights_dict)
+
+    flights_df.to_sql('flights', if_exists='append', con=con, index=False)
