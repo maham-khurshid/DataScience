@@ -1,4 +1,6 @@
 #Overview
-
-* the following folder contains all material consisting of (DB-files, Python-Codes, Comption-Files-for-best-price).
+  ## Classification - Folder
+* the following folder contains all material consisting of (DB-files, Python-Codes, and Comption-Files-for-best-price).
 * Modeling technique used in the code based on Classification using Supervised Machine Learning.
+
+## Regression - Folder
