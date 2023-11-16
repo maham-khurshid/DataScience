@@ -8,3 +8,6 @@ The following folder contains my portfolio of **DataScience Projects** Which I c
 
    # Code or project report folder:
      * these two types of folders contain Python code files, which were performed in the DataScience process of these projects.
+  
+  # Readme / aboutme .txt files
+   * these types of .txt files in each folder contain the description of the material that the specific folder contains.
